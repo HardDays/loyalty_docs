@@ -1,0 +1,1150 @@
+{
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "operationId": "auth_login",
+        "summary": "Login",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/User"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "object",
+              "type": "object",
+              "properties": {
+                "email": {
+                  "x-oad-type": "string",
+                  "type": "string"
+                },
+                "password": {
+                  "x-oad-type": "string",
+                  "type": "string"
+                },
+                "phone": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "phone"
+                }
+              }
+            },
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/auth/confirm/phone": {
+      "post": {
+        "operationId": "confirm_phone",
+        "summary": "Confirm phone",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/User"
+            },
+            "x-oad-type": "response"
+          }
+        }
+      },
+      "x-oad-type": "operation"
+    },
+    "/operators": {
+      "get": {
+        "summary": "Get operators",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "array",
+              "type": "array",
+              "items": {
+                "x-oad-type": "reference",
+                "$ref": "#/definitions/User"
+              }
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "store_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create operator",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/User"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "x-oad-type": "object",
+              "type": "object",
+              "properties": {
+                "email": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "Email"
+                },
+                "first_name": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "First name"
+                },
+                "last_name": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "Last name"
+                },
+                "second_name": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "Second name"
+                },
+                "store_id": {
+                  "x-oad-type": "integer",
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/operators/{id}": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/User"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "object",
+              "type": "object",
+              "properties": {
+                "email": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "Email"
+                },
+                "first_name": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "First name"
+                },
+                "last_name": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "Last name"
+                },
+                "second_name": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "Second name"
+                },
+                "store_id": {
+                  "x-oad-type": "integer",
+                  "type": "integer",
+                  "title": "Store",
+                  "format": "int32"
+                }
+              }
+            },
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/creators": {
+      "post": {
+        "summary": "Create creator",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/User"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/User"
+            },
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/clients": {
+      "post": {
+        "summary": "Create client",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/User"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "object",
+              "type": "object",
+              "title": "first_name",
+              "properties": {
+                "phone": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "Phone"
+                },
+                "first_name": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "First name"
+                },
+                "last_name": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "Last name"
+                },
+                "second_name": {
+                  "x-oad-type": "string",
+                  "type": "string",
+                  "title": "Second name"
+                },
+                "loyalty_program_id": {
+                  "x-oad-type": "integer",
+                  "type": "integer",
+                  "title": "Loyaty program",
+                  "format": "int32"
+                }
+              }
+            },
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/companies": {
+      "get": {
+        "summary": "Get company",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Company"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Company"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Company"
+            },
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create company",
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Company"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Company"
+            },
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/stores": {
+      "get": {
+        "summary": "Get stores",
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "x-oad-type": "array",
+              "type": "array",
+              "items": {
+                "x-oad-type": "reference",
+                "$ref": "#/definitions/Store"
+              }
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create store",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Store"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Store"
+            },
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/stores/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Store"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Store"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Store"
+            },
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete store",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/loyalty_programs": {
+      "get": {
+        "summary": "Get all loyalty programs",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "array",
+              "type": "array",
+              "items": {
+                "x-oad-type": "reference",
+                "$ref": "#/definitions/Loyalty program"
+              }
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create loyalty program",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Loyalty program"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Loyalty program"
+            },
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/loyalty_programs/{id}": {
+      "get": {
+        "summary": "Get loyalty program",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Loyalty program"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update porgram",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Loyalty program"
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Loyalty program"
+            },
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Delete program",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    },
+    "/orders": {
+      "post": {
+        "summary": "Create order",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "reference",
+              "$ref": "#/definitions/Order"
+            },
+            "x-oad-type": "response"
+          }
+        }
+      },
+      "x-oad-type": "operation"
+    },
+    "/orders/{id}/write_off": {
+      "get": {
+        "summary": "Get points we can write off",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "x-oad-type": "object",
+              "type": "object",
+              "properties": {
+                "write_of_money": {
+                  "x-oad-type": "integer",
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "write_off_points": {
+                  "x-oad-type": "integer",
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Write off points",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "x-oad-type": "response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-oad-type": "parameter"
+          }
+        ]
+      },
+      "x-oad-type": "operation"
+    }
+  },
+  "definitions": {
+    "User": {
+      "x-oad-type": "object",
+      "type": "object",
+      "title": "User",
+      "properties": {
+        "first_name": {
+          "x-oad-type": "string",
+          "type": "string"
+        },
+        "last_name": {
+          "x-oad-type": "string",
+          "type": "string"
+        },
+        "email": {
+          "x-oad-type": "string",
+          "type": "string"
+        },
+        "password": {
+          "x-oad-type": "string",
+          "type": "string"
+        },
+        "phone": {
+          "x-oad-type": "string",
+          "type": "string"
+        },
+        "id": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Id",
+          "readOnly": true
+        },
+        "token": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "token",
+          "readOnly": true
+        }
+      }
+    },
+    "Company": {
+      "x-oad-type": "object",
+      "type": "object",
+      "title": "Company",
+      "properties": {
+        "name": {
+          "x-oad-type": "string",
+          "type": "string"
+        }
+      }
+    },
+    "Store": {
+      "x-oad-type": "object",
+      "type": "object",
+      "title": "Store",
+      "properties": {
+        "name": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Name"
+        },
+        "country": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Country"
+        },
+        "city": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "City"
+        },
+        "street": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Street"
+        },
+        "house": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "House"
+        }
+      }
+    },
+    "Order": {
+      "x-oad-type": "object",
+      "type": "object",
+      "properties": {
+        "price": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Price in cents",
+          "format": "int32"
+        },
+        "use_points": {
+          "x-oad-type": "boolean",
+          "type": "boolean"
+        },
+        "client_id": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Loyalty program": {
+      "x-oad-type": "object",
+      "type": "object",
+      "title": "Loyalty program",
+      "properties": {
+        "name": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Name"
+        },
+        "loyalty_levels": {
+          "x-oad-type": "array",
+          "type": "array",
+          "items": {
+            "x-oad-type": "reference",
+            "$ref": "#/definitions/Loyalty level"
+          }
+        }
+      }
+    },
+    "Loyalty level": {
+      "x-oad-type": "object",
+      "type": "object",
+      "title": "Loyalty level",
+      "properties": {
+        "level_type": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Level type",
+          "enum": [
+            "one_buy",
+            "sum_buy"
+          ]
+        },
+        "min_price": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Min price or sum of purchase in cents",
+          "format": "int32"
+        },
+        "accrual_rule": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Accrual rule",
+          "enum": [
+            "no_accrual",
+            "accrual_percent",
+            "accrual_convert"
+          ]
+        },
+        "accrual_percent": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Percent for accrual",
+          "format": "int32"
+        },
+        "accrual_points": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Accrual points for convert accrual",
+          "format": "int32"
+        },
+        "accrual_money": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Money for conver acccrual",
+          "format": "int32"
+        },
+        "burning_rule": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Burning rule",
+          "enum": [
+            "no_burning",
+            "burning_days"
+          ]
+        },
+        "burning_days": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Days for burning days rule",
+          "format": "int32"
+        },
+        "activation_rule": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Activation rule",
+          "enum": [
+            "activation_moment",
+            "activation_days"
+          ]
+        },
+        "activation_days": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Days for activation rule",
+          "format": "int32"
+        },
+        "write_off_points": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Conversion of points",
+          "format": "int32"
+        },
+        "write_off_money": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Conversion of money",
+          "format": "int32"
+        },
+        "write_off_rule": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Write off rule",
+          "enum": [
+            "no_write_off",
+            "write_off_convert"
+          ]
+        },
+        "write_off_rule_percent": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Percent for convert write off",
+          "format": "int32"
+        },
+        "write_off_rule_points": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Points for write off rule",
+          "format": "int32"
+        },
+        "accordance_rule": {
+          "x-oad-type": "string",
+          "type": "string",
+          "title": "Accordance rule",
+          "enum": [
+            "no_accordance",
+            "accordance_convert"
+          ]
+        },
+        "accordance_percent": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Percent for accordance convert",
+          "format": "int32"
+        },
+        "accordance_points": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Accordance points for accordance convert",
+          "format": "int32"
+        },
+        "rounding_rule": {
+          "x-oad-type": "string",
+          "type": "string",
+          "enum": [
+            "no_rounding",
+            "rounding_math",
+            "rounding_small",
+            "rounding_big"
+          ]
+        },
+        "accrual_on_points": {
+          "x-oad-type": "boolean",
+          "type": "boolean"
+        },
+        "accrual_on_register": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Accrual on register",
+          "format": "int32"
+        },
+        "register_points": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Register points  if accrual on register",
+          "format": "int32"
+        },
+        "accrual_on_first_buy": {
+          "x-oad-type": "boolean",
+          "type": "boolean",
+          "title": "Accrual on first buy"
+        },
+        "first_buy_points": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Points if fon first buy",
+          "format": "int32"
+        },
+        "accrual_on_birthday": {
+          "x-oad-type": "boolean",
+          "type": "boolean",
+          "title": "Accrual on bday"
+        },
+        "birthday_points": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "format": "int32"
+        },
+        "sms_on_register": {
+          "x-oad-type": "boolean",
+          "type": "boolean",
+          "title": "Send on register"
+        },
+        "sms_on_write_off": {
+          "x-oad-type": "boolean",
+          "type": "boolean",
+          "title": "Sms on write off"
+        },
+        "sms_on_points": {
+          "x-oad-type": "boolean",
+          "type": "boolean",
+          "title": "Sms on points add"
+        },
+        "sms_on_burning": {
+          "x-oad-type": "boolean",
+          "type": "boolean",
+          "title": "Sms on burn"
+        },
+        "sms_burning_days": {
+          "x-oad-type": "integer",
+          "type": "integer",
+          "title": "Days for sms on burning",
+          "format": "int32"
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "Whatsapp Bots",
+    "version": "1"
+  },
+  "host": "34.90.57.126:3000",
+  "basePath": "/api/v1",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "swagger": "2.0"
+}
